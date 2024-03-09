@@ -8,8 +8,9 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->boolean('type')->default(false);
+            $table->boolean('type')->default(false); //add type boolean USERS: 0=User , 1=>Admin , 2=>Manager
         });
     }
 
